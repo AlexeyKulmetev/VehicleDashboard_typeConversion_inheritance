@@ -6,15 +6,15 @@
 
 const int VEHICLE_NUM = 20;
 
-void showDashboard(Vehicle* vehicle) {
+void showDashboard(const Vehicle* vehicle) {
 	if (!vehicle) {
 		std::cout << "Null vehicle";
 		return;
 	}
-	if (ElectricCar* electricCar = dynamic_cast<ElectricCar*>(vehicle)) {
+	if (const ElectricCar* electricCar = dynamic_cast<const ElectricCar*>(vehicle)) {
 		std::cout << "Battery: " << electricCar->getBatteryLevel() << "%";
 	}
-	else if (GasCar* gasCar = dynamic_cast<GasCar*>(vehicle)) {
+	else if (const GasCar* gasCar = dynamic_cast<const GasCar*>(vehicle)) {
 		std::cout << "Fuel: " << gasCar->getFuelLevel() << "%";
 	}
 	else {
